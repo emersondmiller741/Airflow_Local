@@ -1,9 +1,9 @@
 from datetime import datetime
 from airflow.sdk import DAG, task, task_group
-from reports.customers.customers_report import CustomersReport
-from reports.inventory.inventory_report import InventoryReport
-from reports.sales.sales_report import SalesReport
-from reports.common.business_calendar import BusinessCalendar
+from customer_reporting_demo.reports.customers.customers_report import CustomersReport
+from customer_reporting_demo.reports.inventory.inventory_report import InventoryReport
+from customer_reporting_demo.reports.sales.sales_report import SalesReport
+from customer_reporting_demo.reports.common.business_calendar import BusinessCalendar
 
 with DAG(
     dag_id="master_report_scheduler",
@@ -33,7 +33,7 @@ with DAG(
 
         return True
 
-    @task_group
+    @task
     def run_customers_report():
         report = CustomersReport(
             report_date=datetime.now().date()
@@ -41,7 +41,7 @@ with DAG(
 
         report.run()
 
-    @task_group
+    @task
     def run_inventory_report():
         report = InventoryReport(
             report_date=datetime.now().date()
@@ -49,7 +49,7 @@ with DAG(
 
         report.run()
 
-    @task_group
+    @task
     def run_sales_report():
         report = SalesReport(
             report_date=datetime.now().date()

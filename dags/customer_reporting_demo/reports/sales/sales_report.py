@@ -1,5 +1,5 @@
 from datetime import date
-from reports.base_report import BaseReport
+from customer_reporting_demo.reports.base_report import BaseReport
 
 
 class SalesReport(BaseReport):
