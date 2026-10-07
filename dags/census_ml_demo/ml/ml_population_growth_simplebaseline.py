@@ -104,7 +104,7 @@ def run_population_growth_baseline():
 
     total_training_rows = 0
     total_test_rows = 0
-    ```python
+
     import pandas as pd
     from sqlalchemy import text
     from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
