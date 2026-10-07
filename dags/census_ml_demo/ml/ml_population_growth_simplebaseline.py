@@ -487,7 +487,7 @@ def run_population_growth_baseline():
         print(f"Stored metrics rows: {len(results_df)}")
         print(f"Stored prediction rows: {len(predictions_df)}")
 
-    ```
+
 
     # ---------------------------------------------------------
     # Rolling validation
